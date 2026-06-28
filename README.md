@@ -4,37 +4,28 @@
 
 ---
 
-## 📊 المخطط المعماري لتدفق البيانات (System Architecture)
+## 📊 System Architecture
 
 ```mermaid
 graph TD
-    %% تدفق المخطط المعماري الأساسي
-    User[📥 طلب المستخدم - User Prompt] --> L1_1
-    User --> L1_2
-    User --> L1_3
-    User --> L1_4
-    User --> L1_5
+    User[User Prompt Input] --> L1
+    User --> L2
+    User --> L3
+    User --> L4
+    User --> L5
 
-    %% الطبقة الأولى: الوكلاء المرجعيون
-    subgraph الطبقة الأولى: النماذج المرجعية (The Specialists)
-        L1_1[🤖 deepseek-v4-flash-free <br> التفكير والاستدلال]
-        L1_2[⚡ nemotron-3-ultra-free <br> التحليل السريع]
-        L1_3[💻 north-mini-code-free <br> البرمجة والأكواد]
-        L1_4[💬 mimo-v2.5-free <br> المحادثة والتفاعل]
-        L1_5[📦 big-pickle <br> الأغراض العامة]
+    subgraph Layer1 [Layer 1: Reference Models]
+        L1[deepseek-v4-flash-free]
+        L2[nemotron-3-ultra-free]
+        L3[north-mini-code-free]
+        L4[mimo-v2.5-free]
+        L5[big-pickle]
     end
 
-    %% الطبقة الثانية: المجمع النهائي
-    L1_1 --> L2[🧠 طبقة التجميع والمزامنة <br> DeepSeek V4 Flash]
-    L1_2 --> L2
-    L1_3 --> L2
-    L1_4 --> L2
-    L1_5 --> L2
+    L1 --> Aggregator[Aggregator Layer: DeepSeek V4 Flash]
+    L2 --> Aggregator
+    L3 --> Aggregator
+    L4 --> Aggregator
+    L5 --> Aggregator
 
-    %% النتيجة النهائية
-    L2 --> FinalOut[🏆 مخرج نهائي موحد عالي الجودة]
-
-    %% التنسيق اللوني الافتراضي للمخطط
-    style User fill:#2ecc71,stroke:#27ae60,stroke-width:2px,color:#fff
-    style L2 fill:#9b59b6,stroke:#8e44ad,stroke-width:2px,color:#fff
-    style FinalOut fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#fff
+    Aggregator --> FinalOut[Consolidated High Quality Output]
