@@ -29,3 +29,8 @@ graph TD
     L5 --> Aggregator
 
     Aggregator --> FinalOut[Consolidated High Quality Output]
+
+    %% تخصيص الألوان البرمجية اللامعة المتوافقة مع الـ Dark Mode
+    style User fill:#218838,stroke:#28a745,stroke-width:2px,color:#fff
+    style Aggregator fill:#6f42c1,stroke:#8a59e3,stroke-width:2px,color:#fff
+    style FinalOut fill:#fd7e14,stroke:#f85a1b,stroke-width:2px,color:#fff
